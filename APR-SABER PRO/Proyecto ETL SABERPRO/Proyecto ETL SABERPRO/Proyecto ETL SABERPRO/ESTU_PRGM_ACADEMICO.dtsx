@@ -1,0 +1,327 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/13/2024 7:29:52 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-B9GHVIP"
+  DTS:CreatorName="DESKTOP-B9GHVIP\CAMILO"
+  DTS:DTSID="{80EA4319-7E83-4975-9DCF-C807D885F09F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{62565D49-0510-4DC7-991C-946B8AE631B9}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tarea Flujo de datos"
+      DTS:DTSID="{fd35c146-392b-430d-8d34-cde21223e766}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="InsertarDWH_ESTU_PRGM_ACADEMICO">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="DWH_ESTU_PRGM_ACADEMICO"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."ESTU_PRGM_ACADEMICO"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Connections[IDbConnection]"
+                  connectionManagerID="{9EB6FA49-E603-4EB5-9F1A-43F947AFF918}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost, 1434.SaberProDWH.sa]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Inputs[Entrada de destino de ADO NET].Columns[ESTU_PRGM_ACADEMICO]"
+                      cachedDataType="nText"
+                      cachedName="ESTU_PRGM_ACADEMICO"
+                      externalMetadataColumnId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_PRGM_ACADEMICO]"
+                      lineageId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de origen de ADO NET].Columns[ESTU_PRGM_ACADEMICO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_PRGM_ACADEMICO]"
+                      dataType="i4"
+                      name="ESTU_COD_PRGM_ACADEMICO" />
+                    <externalMetadataColumn
+                      refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_PRGM_ACADEMICO]"
+                      dataType="wstr"
+                      length="109"
+                      name="ESTU_PRGM_ACADEMICO" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="SaberProSource"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT DISTINCT ESTU_PRGM_ACADEMICO
+FROM [SaberProSource].[dbo].[SaberProSource]
+EXCEPT
+SELECT ESTU_PRGM_ACADEMICO
+FROM [SaberProDWH].[dbo].[ESTU_PRGM_ACADEMICO]
+ORDER BY ESTU_PRGM_ACADEMICO</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Connections[IDbConnection]"
+                  connectionManagerID="{0695BF89-C29D-4098-A624-0A05C7F768E0}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost, 1434.SaberProSource.sa]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de origen de ADO NET].Columns[ESTU_PRGM_ACADEMICO]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_PRGM_ACADEMICO]"
+                      lineageId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de origen de ADO NET].Columns[ESTU_PRGM_ACADEMICO]"
+                      name="ESTU_PRGM_ACADEMICO"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_PRGM_ACADEMICO]"
+                      dataType="nText"
+                      name="ESTU_PRGM_ACADEMICO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_PRGM_ACADEMICO]"
+                      dataType="nText"
+                      lineageId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_PRGM_ACADEMICO]"
+                      name="ESTU_PRGM_ACADEMICO" />
+                    <outputColumn
+                      refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO.Paths[Salida de origen de ADO NET]"
+              endId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="290,42"
+          Id="Package\InsertarDWH_ESTU_PRGM_ACADEMICO"
+          TopLeft="60,60" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\InsertarDWH_ESTU_PRGM_ACADEMICO">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="252,42"
+          Id="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO"
+          TopLeft="199,141" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource"
+          TopLeft="227,50" />
+        <EdgeLayout
+          Id="Package\InsertarDWH_ESTU_PRGM_ACADEMICO.Paths[Salida de origen de ADO NET]"
+          TopLeft="307,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="18,49"
+              Start="0,0"
+              End="18,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.5"
+                    Point2="0,24.5"
+                    Point3="4,24.5" />
+                  <mssgle:LineSegment
+                    End="14,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="14,24.5"
+                    Point2="18,24.5"
+                    Point3="18,28.5" />
+                  <mssgle:LineSegment
+                    End="18,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\DWH_ESTU_PRGM_ACADEMICO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\InsertarDWH_ESTU_PRGM_ACADEMICO\SaberProSource">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

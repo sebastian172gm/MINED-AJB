@@ -1,0 +1,16 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="localhost, 1434.SaberProDWH.sa1"
+  DTS:DTSID="{2FB9F38E-882A-4599-979C-15A3809F7D5D}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=localhost, 1434;User ID=sa;Initial Catalog=SaberProDWH;Provider=SQLOLEDB.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Proyecto ETL SABERPRO-{2FB9F38E-882A-4599-979C-15A3809F7D5D}localhost, 1434.SaberProDWH.sa1;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKyX6SCUwlkSfzJnnI5EeswAAAAACAAAAAAAQZgAAAAEAACAAAACwvCnCeSBh2AGrnTKVGcHKfzgGhrnxUdWJgdmEacCgKgAAAAAOgAAAAAIAACAAAABNEqoh5ra9qVdempe7eSbM7tO8WE6LLZ78p0W+MFmAKoAAAAAz2fpe7Hn9uZ5dhJnK7RqR+ACKMgjjMiRfwobgbgYn6ei7RQG7vdLZJSujdXUhHPdCllZNw7tUK/HlWUSA4QXO5ZRNnpK7Bs5mgQFDL1u0dx84Mfwl/86A52O3R1r7GC4DP1UXfn9YqKzVNU/NJk/7P0eaEwqc4yqCGrDOpMlf2EAAAAAum1AL6w8/qfynBHSP6CejE+cix8z+LgU6E26ToiBOB299iV/Chu0XCwARkQNLDoIuUMI7XryZZQwCsxSfaj/M</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

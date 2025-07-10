@@ -1,0 +1,419 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/30/2024 8:41:23 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-B9GHVIP"
+  DTS:CreatorName="DESKTOP-B9GHVIP\CAMILO"
+  DTS:DTSID="{2255831D-3758-4E9B-9E22-5FB1C2E3E0EC}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="9226"
+  DTS:ObjectName="DIM_ESTU_MUN_RESIDENCIA"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{4EDA6342-F46A-40B3-93B5-4DA70BA09E1C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\InsertarDIM_ESTU_MUN_RESIDE"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CF1F0372-008E-4C30-A08D-40709386B022}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="InsertarDIM_ESTU_MUN_RESIDE">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="DIM_ESTU_MUN_RESIDE"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."DIM_ESTU_MUN_RESIDENCIA"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Connections[IDbConnection]"
+                  connectionManagerID="{EAEC273C-A2C6-45D6-A018-195DC971CC57}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost, 1434.SaberProDim.sa 1]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_RESIDE_MCPIO]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_RESIDE_MCPIO"
+                      externalMetadataColumnId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_RESIDE_MCPIO]"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_RESIDE_MCPIO]" />
+                    <inputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_MCPIO_RESIDE]"
+                      cachedDataType="wstr"
+                      cachedLength="27"
+                      cachedName="ESTU_MCPIO_RESIDE"
+                      externalMetadataColumnId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_MCPIO_RESIDE]"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_MCPIO_RESIDE]" />
+                    <inputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_RESIDE_DEPTO]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_RESIDE_DEPTO"
+                      externalMetadataColumnId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_RESIDE_DEPTO]"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_RESIDE_DEPTO]" />
+                    <inputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_DEPTO_RESIDE]"
+                      cachedDataType="wstr"
+                      cachedLength="17"
+                      cachedName="ESTU_DEPTO_RESIDE"
+                      externalMetadataColumnId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_DEPTO_RESIDE]"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_DEPTO_RESIDE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_RESIDE_MCPIO]"
+                      dataType="i4"
+                      name="ESTU_COD_RESIDE_MCPIO" />
+                    <externalMetadataColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_MCPIO_RESIDE]"
+                      dataType="wstr"
+                      length="27"
+                      name="ESTU_MCPIO_RESIDE" />
+                    <externalMetadataColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_RESIDE_DEPTO]"
+                      dataType="i4"
+                      name="ESTU_COD_RESIDE_DEPTO" />
+                    <externalMetadataColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_DEPTO_RESIDE]"
+                      dataType="wstr"
+                      length="17"
+                      name="ESTU_DEPTO_RESIDE" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="DWH"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT  MUN.[ESTU_COD_RESIDE_MCPIO]
+      ,MUN.[ESTU_MCPIO_RESIDE]
+      ,MUN.[ESTU_COD_RESIDE_DEPTO]
+      ,DEP.ESTU_DEPTO_RESIDE
+  FROM [SaberProDWH].[dbo].[ESTU_MUN_RESIDENCIA] AS MUN
+LEFT JOIN ESTU_DEP_RESIDENCIA AS DEP ON MUN.ESTU_COD_RESIDE_DEPTO = DEP.ESTU_COD_RESIDE_DEPTO
+EXCEPT
+SELECT *
+FROM [SaberProDim].[dbo].[DIM_ESTU_MUN_RESIDENCIA]</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">120</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Connections[IDbConnection]"
+                  connectionManagerID="{F144D42B-B8F1-4984-B0EA-61835562465D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost, 1434.SaberProDWH.sa 1]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_RESIDE_MCPIO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_RESIDE_MCPIO]"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_RESIDE_MCPIO]"
+                      name="ESTU_COD_RESIDE_MCPIO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_MCPIO_RESIDE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_MCPIO_RESIDE]"
+                      length="27"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_MCPIO_RESIDE]"
+                      name="ESTU_MCPIO_RESIDE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_RESIDE_DEPTO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_RESIDE_DEPTO]"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_RESIDE_DEPTO]"
+                      name="ESTU_COD_RESIDE_DEPTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_DEPTO_RESIDE]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_DEPTO_RESIDE]"
+                      length="17"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_DEPTO_RESIDE]"
+                      name="ESTU_DEPTO_RESIDE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_RESIDE_MCPIO]"
+                      dataType="i4"
+                      name="ESTU_COD_RESIDE_MCPIO" />
+                    <externalMetadataColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_MCPIO_RESIDE]"
+                      dataType="wstr"
+                      length="27"
+                      name="ESTU_MCPIO_RESIDE" />
+                    <externalMetadataColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_RESIDE_DEPTO]"
+                      dataType="i4"
+                      name="ESTU_COD_RESIDE_DEPTO" />
+                    <externalMetadataColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_DEPTO_RESIDE]"
+                      dataType="wstr"
+                      length="17"
+                      name="ESTU_DEPTO_RESIDE" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_RESIDE_MCPIO]"
+                      dataType="i4"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_RESIDE_MCPIO]"
+                      name="ESTU_COD_RESIDE_MCPIO" />
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_MCPIO_RESIDE]"
+                      dataType="wstr"
+                      length="27"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_MCPIO_RESIDE]"
+                      name="ESTU_MCPIO_RESIDE" />
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_RESIDE_DEPTO]"
+                      dataType="i4"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_RESIDE_DEPTO]"
+                      name="ESTU_COD_RESIDE_DEPTO" />
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_DEPTO_RESIDE]"
+                      dataType="wstr"
+                      length="17"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_DEPTO_RESIDE]"
+                      name="ESTU_DEPTO_RESIDE" />
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\InsertarDIM_ESTU_MUN_RESIDE.Paths[Salida de origen de ADO NET]"
+              endId="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="245.333333333334,42.6666666666667"
+          Id="Package\InsertarDIM_ESTU_MUN_RESIDE"
+          TopLeft="5.50000000000001,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\InsertarDIM_ESTU_MUN_RESIDE">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="104.666666666667,42.6666666666667"
+          Id="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH"
+          TopLeft="217,83" />
+        <NodeLayout
+          Size="209.333333333334,42.6666666666667"
+          Id="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE"
+          TopLeft="320,237" />
+        <EdgeLayout
+          Id="Package\InsertarDIM_ESTU_MUN_RESIDE.Paths[Salida de origen de ADO NET]"
+          TopLeft="269.333333333333,125.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="155.333333333333,111.333333333333"
+              Start="0,0"
+              End="155.333333333333,103.833333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,51.6666666666667"
+                    Point2="0,55.6666666666667"
+                    Point3="4,55.6666666666667" />
+                  <mssgle:LineSegment
+                    End="151.333333333333,55.6666666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="151.333333333333,55.6666666666667"
+                    Point2="155.333333333333,55.6666666666667"
+                    Point3="155.333333333333,59.6666666666667" />
+                  <mssgle:LineSegment
+                    End="155.333333333333,103.833333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\InsertarDIM_ESTU_MUN_RESIDE\DIM_ESTU_MUN_RESIDE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\InsertarDIM_ESTU_MUN_RESIDE\DWH">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

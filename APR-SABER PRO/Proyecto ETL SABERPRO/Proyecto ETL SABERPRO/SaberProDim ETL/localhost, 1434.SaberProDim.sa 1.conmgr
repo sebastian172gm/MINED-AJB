@@ -1,0 +1,14 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="localhost, 1434.SaberProDim.sa 1"
+  DTS:DTSID="{EAEC273C-A2C6-45D6-A018-195DC971CC57}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=&quot;localhost, 1434&quot;;User ID=sa;Initial Catalog=SaberProDim;Persist Security Info=True;Application Name=&quot;SSIS-SaberProDim ETL-{EAEC273C-A2C6-45D6-A018-195DC971CC57}localhost, 1434.SaberProDim.sa&quot;;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAACnlvN9VUPEa0oNxwYqcjTwAAAAACAAAAAAAQZgAAAAEAACAAAAAq+h6yt2+wpSicLttywRYogKQVaOFfyHCcawx4t24CHQAAAAAOgAAAAAIAACAAAAAe6JAsw/RNrLRx2ZcfD5e4YsAYj7ZIbgLueuWQe9aZvoAAAABqxhxP45jgMGHF7boso8ccRRchfRfgFpcd0v4klriWf3dwS3Xh6T0kluKDT1VgVPsQRDGvweyyrEOW4uGR1izOvHL6hH7RrKOtbVSNok3QOB1QjxxTX8d8qNvkiaNT+KqMy/HoecyZEvNxmT1y37+m1IfP7vKqHHSPSg+lzNUe/kAAAACz2afWVP9KdSgK8rJLxWb/db11FyaI8UxYsBwIoSfiyWFaJyXkrMWKQn41BxDUkGeivqYOTxoS14lx/YY+rqUO</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,4 @@
+Azul Principal: #093fc4
+Azul claro: #33d4f1
+Verde Semi oscuro: #23e78c
+Verde claro: #b6e118

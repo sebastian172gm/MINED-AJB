@@ -1,0 +1,1167 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="8/27/2024 5:54:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-EM0FJ33"
+  DTS:CreatorName="DESKTOP-EM0FJ33\angie"
+  DTS:DTSID="{A1980810-35EB-4E97-9103-2B64AC697476}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5556.0"
+  DTS:LocaleID="2058"
+  DTS:ObjectName="FACT_ESTUDIANTE"
+  DTS:PackageType="5"
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{D1CC139F-3717-4507-9EE3-A99478790C43}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{71C59013-98B3-4DA9-BF93-6383072FA3D2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\DWH"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Consume datos de SQL Server, OLE DB, ODBC u Oracle mediante el correspondiente proveedor de datos de .NET Framework. Se usa una instrucción Transact-SQL para definir el conjunto de resultados. Por ejemplo, se extraen datos de SQL Server con el proveedor de datos de .NET Framework para SQL Server."
+              name="DWH"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Especifica la instrucción SQL utilizada por el componente para extraer datos."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si se debe permitir que columnas externas que no sean de cadenas se conviertan implícitamente en cadenas en las columnas de salida."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de origen."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."ESTUDIANTE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especificar el modo de recuperar información de columnas externas"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DWH.Connections[IDbConnection]"
+                  connectionManagerID="{F144D42B-B8F1-4984-B0EA-61835562465D}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost, 1434.SaberProDWH.sa 1]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET]"
+                  name="Salida de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_CONSECUTIVO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_CONSECUTIVO]"
+                      length="14"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_CONSECUTIVO]"
+                      name="ESTU_CONSECUTIVO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_RESIDE_MUN]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_RESIDE_MUN]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_RESIDE_MUN]"
+                      name="ESTU_COD_RESIDE_MUN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_FECHANACIMIENTO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_FECHANACIMIENTO]"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_FECHANACIMIENTO]"
+                      name="ESTU_FECHANACIMIENTO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_GENERO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_GENERO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_GENERO]"
+                      name="ESTU_COD_GENERO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_HORASSEMANATRABAJA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_HORASSEMANATRABAJA]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_HORASSEMANATRABAJA]"
+                      name="ESTU_COD_HORASSEMANATRABAJA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PRIVADO_LIBERTAD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_PRIVADO_LIBERTAD]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PRIVADO_LIBERTAD]"
+                      name="ESTU_COD_PRIVADO_LIBERTAD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_NACIONALIDAD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_NACIONALIDAD]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_NACIONALIDAD]"
+                      name="ESTU_COD_NACIONALIDAD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_ESTRATOVIVIENDA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_ESTRATOVIVIENDA]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_ESTRATOVIVIENDA]"
+                      name="FAMI_COD_ESTRATOVIVIENDA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENEAUTOMOVIL]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_TIENEAUTOMOVIL]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENEAUTOMOVIL]"
+                      name="FAMI_COD_TIENEAUTOMOVIL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENELAVADORA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_TIENELAVADORA]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENELAVADORA]"
+                      name="FAMI_COD_TIENELAVADORA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENECOMPUTADOR]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_TIENECOMPUTADOR]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENECOMPUTADOR]"
+                      name="FAMI_COD_TIENECOMPUTADOR"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENEINTERNET]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_TIENEINTERNET]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENEINTERNET]"
+                      name="FAMI_COD_TIENEINTERNET"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_EDUCACIONPADRE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_EDUCACIONPADRE]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_EDUCACIONPADRE]"
+                      name="FAMI_COD_EDUCACIONPADRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_EDUCACIONMADRE]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_EDUCACIONMADRE]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_EDUCACIONMADRE]"
+                      name="FAMI_COD_EDUCACIONMADRE"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[INST_COD_INSTITUCION]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[INST_COD_INSTITUCION]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[INST_COD_INSTITUCION]"
+                      name="INST_COD_INSTITUCION"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[INST_COD_ORIGEN]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[INST_COD_ORIGEN]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[INST_COD_ORIGEN]"
+                      name="INST_COD_ORIGEN"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_NUCLEO_PREGRADO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_NUCLEO_PREGRADO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_NUCLEO_PREGRADO]"
+                      name="ESTU_COD_NUCLEO_PREGRADO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_METODO_PRGM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_METODO_PRGM]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_METODO_PRGM]"
+                      name="ESTU_COD_METODO_PRGM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_VALORMATRICULAUNIVERSIDAD]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_VALORMATRICULAUNIVERSIDAD]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_VALORMATRICULAUNIVERSIDAD]"
+                      name="ESTU_COD_VALORMATRICULAUNIVERSIDAD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULABECA]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULABECA]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULABECA]"
+                      name="ESTU_COD_PAGOMATRICULABECA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULACREDITO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULACREDITO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULACREDITO]"
+                      name="ESTU_COD_PAGOMATRICULACREDITO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPADRES]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULAPADRES]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPADRES]"
+                      name="ESTU_COD_PAGOMATRICULAPADRES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPROPIO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULAPROPIO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPROPIO]"
+                      name="ESTU_COD_PAGOMATRICULAPROPIO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_RAZONA_CUANTITAT_PUNT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_RAZONA_CUANTITAT_PUNT]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_RAZONA_CUANTITAT_PUNT]"
+                      name="MOD_RAZONA_CUANTITAT_PUNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COMUNI_ESCRITA_PUNT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_COMUNI_ESCRITA_PUNT]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COMUNI_ESCRITA_PUNT]"
+                      name="MOD_COMUNI_ESCRITA_PUNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_LECTURA_CRITICA_PUNT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_LECTURA_CRITICA_PUNT]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_LECTURA_CRITICA_PUNT]"
+                      name="MOD_LECTURA_CRITICA_PUNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_INGLES_PUNT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_INGLES_PUNT]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_INGLES_PUNT]"
+                      name="MOD_INGLES_PUNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COMPETEN_CIUDADA_PUNT]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_COMPETEN_CIUDADA_PUNT]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COMPETEN_CIUDADA_PUNT]"
+                      name="MOD_COMPETEN_CIUDADA_PUNT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COD_INGLES_DESEM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_COD_INGLES_DESEM]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COD_INGLES_DESEM]"
+                      name="MOD_COD_INGLES_DESEM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COD_COMUNI_ESCRITA_DESEM]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_COD_COMUNI_ESCRITA_DESEM]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COD_COMUNI_ESCRITA_DESEM]"
+                      name="MOD_COD_COMUNI_ESCRITA_DESEM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[PERIODO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[PERIODO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[PERIODO]"
+                      name="PERIODO"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_CONSECUTIVO]"
+                      dataType="wstr"
+                      length="14"
+                      name="ESTU_CONSECUTIVO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_RESIDE_MUN]"
+                      dataType="i4"
+                      name="ESTU_COD_RESIDE_MUN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_FECHANACIMIENTO]"
+                      dataType="wstr"
+                      length="10"
+                      name="ESTU_FECHANACIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_GENERO]"
+                      dataType="i4"
+                      name="ESTU_COD_GENERO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_HORASSEMANATRABAJA]"
+                      dataType="i4"
+                      name="ESTU_COD_HORASSEMANATRABAJA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_PRIVADO_LIBERTAD]"
+                      dataType="i4"
+                      name="ESTU_COD_PRIVADO_LIBERTAD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_NACIONALIDAD]"
+                      dataType="i4"
+                      name="ESTU_COD_NACIONALIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_ESTRATOVIVIENDA]"
+                      dataType="i4"
+                      name="FAMI_COD_ESTRATOVIVIENDA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_TIENEAUTOMOVIL]"
+                      dataType="i4"
+                      name="FAMI_COD_TIENEAUTOMOVIL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_TIENELAVADORA]"
+                      dataType="i4"
+                      name="FAMI_COD_TIENELAVADORA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_TIENECOMPUTADOR]"
+                      dataType="i4"
+                      name="FAMI_COD_TIENECOMPUTADOR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_TIENEINTERNET]"
+                      dataType="i4"
+                      name="FAMI_COD_TIENEINTERNET" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_EDUCACIONPADRE]"
+                      dataType="i4"
+                      name="FAMI_COD_EDUCACIONPADRE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[FAMI_COD_EDUCACIONMADRE]"
+                      dataType="i4"
+                      name="FAMI_COD_EDUCACIONMADRE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[INST_COD_INSTITUCION]"
+                      dataType="i4"
+                      name="INST_COD_INSTITUCION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[INST_COD_ORIGEN]"
+                      dataType="i4"
+                      name="INST_COD_ORIGEN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_NUCLEO_PREGRADO]"
+                      dataType="i4"
+                      name="ESTU_COD_NUCLEO_PREGRADO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_METODO_PRGM]"
+                      dataType="i4"
+                      name="ESTU_COD_METODO_PRGM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_VALORMATRICULAUNIVERSIDAD]"
+                      dataType="i4"
+                      name="ESTU_COD_VALORMATRICULAUNIVERSIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULABECA]"
+                      dataType="i4"
+                      name="ESTU_COD_PAGOMATRICULABECA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULACREDITO]"
+                      dataType="i4"
+                      name="ESTU_COD_PAGOMATRICULACREDITO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULAPADRES]"
+                      dataType="i4"
+                      name="ESTU_COD_PAGOMATRICULAPADRES" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULAPROPIO]"
+                      dataType="i4"
+                      name="ESTU_COD_PAGOMATRICULAPROPIO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_RAZONA_CUANTITAT_PUNT]"
+                      dataType="i4"
+                      name="MOD_RAZONA_CUANTITAT_PUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_COMUNI_ESCRITA_PUNT]"
+                      dataType="i4"
+                      name="MOD_COMUNI_ESCRITA_PUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_LECTURA_CRITICA_PUNT]"
+                      dataType="i4"
+                      name="MOD_LECTURA_CRITICA_PUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_INGLES_PUNT]"
+                      dataType="i4"
+                      name="MOD_INGLES_PUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_COMPETEN_CIUDADA_PUNT]"
+                      dataType="i4"
+                      name="MOD_COMPETEN_CIUDADA_PUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_COD_INGLES_DESEM]"
+                      dataType="i4"
+                      name="MOD_COD_INGLES_DESEM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[MOD_COD_COMUNI_ESCRITA_DESEM]"
+                      dataType="i4"
+                      name="MOD_COD_COMUNI_ESCRITA_DESEM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].ExternalColumns[PERIODO]"
+                      dataType="i4"
+                      name="PERIODO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de ADO NET">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_CONSECUTIVO]"
+                      dataType="wstr"
+                      length="14"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_CONSECUTIVO]"
+                      name="ESTU_CONSECUTIVO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_RESIDE_MUN]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_RESIDE_MUN]"
+                      name="ESTU_COD_RESIDE_MUN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_FECHANACIMIENTO]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_FECHANACIMIENTO]"
+                      name="ESTU_FECHANACIMIENTO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_GENERO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_GENERO]"
+                      name="ESTU_COD_GENERO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_HORASSEMANATRABAJA]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_HORASSEMANATRABAJA]"
+                      name="ESTU_COD_HORASSEMANATRABAJA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_PRIVADO_LIBERTAD]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_PRIVADO_LIBERTAD]"
+                      name="ESTU_COD_PRIVADO_LIBERTAD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_NACIONALIDAD]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_NACIONALIDAD]"
+                      name="ESTU_COD_NACIONALIDAD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_ESTRATOVIVIENDA]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_ESTRATOVIVIENDA]"
+                      name="FAMI_COD_ESTRATOVIVIENDA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_TIENEAUTOMOVIL]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_TIENEAUTOMOVIL]"
+                      name="FAMI_COD_TIENEAUTOMOVIL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_TIENELAVADORA]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_TIENELAVADORA]"
+                      name="FAMI_COD_TIENELAVADORA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_TIENECOMPUTADOR]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_TIENECOMPUTADOR]"
+                      name="FAMI_COD_TIENECOMPUTADOR" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_TIENEINTERNET]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_TIENEINTERNET]"
+                      name="FAMI_COD_TIENEINTERNET" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_EDUCACIONPADRE]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_EDUCACIONPADRE]"
+                      name="FAMI_COD_EDUCACIONPADRE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_EDUCACIONMADRE]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[FAMI_COD_EDUCACIONMADRE]"
+                      name="FAMI_COD_EDUCACIONMADRE" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[INST_COD_INSTITUCION]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[INST_COD_INSTITUCION]"
+                      name="INST_COD_INSTITUCION" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[INST_COD_ORIGEN]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[INST_COD_ORIGEN]"
+                      name="INST_COD_ORIGEN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_NUCLEO_PREGRADO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_NUCLEO_PREGRADO]"
+                      name="ESTU_COD_NUCLEO_PREGRADO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_METODO_PRGM]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_METODO_PRGM]"
+                      name="ESTU_COD_METODO_PRGM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_VALORMATRICULAUNIVERSIDAD]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_VALORMATRICULAUNIVERSIDAD]"
+                      name="ESTU_COD_VALORMATRICULAUNIVERSIDAD" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULABECA]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULABECA]"
+                      name="ESTU_COD_PAGOMATRICULABECA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULACREDITO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULACREDITO]"
+                      name="ESTU_COD_PAGOMATRICULACREDITO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPADRES]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPADRES]"
+                      name="ESTU_COD_PAGOMATRICULAPADRES" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPROPIO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPROPIO]"
+                      name="ESTU_COD_PAGOMATRICULAPROPIO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_RAZONA_CUANTITAT_PUNT]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_RAZONA_CUANTITAT_PUNT]"
+                      name="MOD_RAZONA_CUANTITAT_PUNT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_COMUNI_ESCRITA_PUNT]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_COMUNI_ESCRITA_PUNT]"
+                      name="MOD_COMUNI_ESCRITA_PUNT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_LECTURA_CRITICA_PUNT]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_LECTURA_CRITICA_PUNT]"
+                      name="MOD_LECTURA_CRITICA_PUNT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_INGLES_PUNT]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_INGLES_PUNT]"
+                      name="MOD_INGLES_PUNT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_COMPETEN_CIUDADA_PUNT]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_COMPETEN_CIUDADA_PUNT]"
+                      name="MOD_COMPETEN_CIUDADA_PUNT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_COD_INGLES_DESEM]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_COD_INGLES_DESEM]"
+                      name="MOD_COD_INGLES_DESEM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_COD_COMUNI_ESCRITA_DESEM]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[MOD_COD_COMUNI_ESCRITA_DESEM]"
+                      name="MOD_COD_COMUNI_ESCRITA_DESEM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[PERIODO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[PERIODO]"
+                      name="PERIODO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de error de origen de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\FACT_ESTUDIANTE"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;2"
+              description="Carga datos en una base de datos compatible con ADO.NET que use una vista o tabla de base de datos. Se cargan datos en una tabla nueva o existente. Por ejemplo, se usa un proveedor ADO.NET para ODBC para cargar datos en un destino ODBC."
+              name="FACT_ESTUDIANTE"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Nombre de la tabla de la base de datos de destino."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."FACT_ESTUDIANTE"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifique el número de filas por lote. El valor predeterminado es 0, que utiliza el mismo tamaño que el búfer interno de SSIS. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si se debe usar la interfaz SqlBulkCopy para mejorar el rendimiento de las operaciones de inserción masiva. No todos los proveedores admiten esta interfaz."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\FACT_ESTUDIANTE.Connections[IDbConnection]"
+                  connectionManagerID="{EAEC273C-A2C6-45D6-A018-195DC971CC57}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[localhost, 1434.SaberProDim.sa 1]"
+                  description="Administrador de conexiones administrado"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de ADO NET">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_CONSECUTIVO]"
+                      cachedDataType="wstr"
+                      cachedLength="14"
+                      cachedName="ESTU_CONSECUTIVO"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_CONSECUTIVO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_CONSECUTIVO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_RESIDE_MUN]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_RESIDE_MUN"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_RESIDE_MUN]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_RESIDE_MUN]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_FECHANACIMIENTO]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="ESTU_FECHANACIMIENTO"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_FECHANACIMIENTO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_FECHANACIMIENTO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_GENERO]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_GENERO"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_GENERO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_GENERO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_HORASSEMANATRABAJA]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_HORASSEMANATRABAJA"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_HORASSEMANATRABAJA]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_HORASSEMANATRABAJA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_PRIVADO_LIBERTAD]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_PRIVADO_LIBERTAD"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_PRIVADO_LIBERTAD]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PRIVADO_LIBERTAD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_NACIONALIDAD]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_NACIONALIDAD"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_NACIONALIDAD]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_NACIONALIDAD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[FAMI_COD_ESTRATOVIVIENDA]"
+                      cachedDataType="i4"
+                      cachedName="FAMI_COD_ESTRATOVIVIENDA"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_ESTRATOVIVIENDA]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_ESTRATOVIVIENDA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[FAMI_COD_TIENEAUTOMOVIL]"
+                      cachedDataType="i4"
+                      cachedName="FAMI_COD_TIENEAUTOMOVIL"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_TIENEAUTOMOVIL]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENEAUTOMOVIL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[FAMI_COD_TIENELAVADORA]"
+                      cachedDataType="i4"
+                      cachedName="FAMI_COD_TIENELAVADORA"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_TIENELAVADORA]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENELAVADORA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[FAMI_COD_TIENECOMPUTADOR]"
+                      cachedDataType="i4"
+                      cachedName="FAMI_COD_TIENECOMPUTADOR"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_TIENECOMPUTADOR]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENECOMPUTADOR]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[FAMI_COD_TIENEINTERNET]"
+                      cachedDataType="i4"
+                      cachedName="FAMI_COD_TIENEINTERNET"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_TIENEINTERNET]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_TIENEINTERNET]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[FAMI_COD_EDUCACIONPADRE]"
+                      cachedDataType="i4"
+                      cachedName="FAMI_COD_EDUCACIONPADRE"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_EDUCACIONPADRE]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_EDUCACIONPADRE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[FAMI_COD_EDUCACIONMADRE]"
+                      cachedDataType="i4"
+                      cachedName="FAMI_COD_EDUCACIONMADRE"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_EDUCACIONMADRE]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[FAMI_COD_EDUCACIONMADRE]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[INST_COD_INSTITUCION]"
+                      cachedDataType="i4"
+                      cachedName="INST_COD_INSTITUCION"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[INST_COD_INSTITUCION]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[INST_COD_INSTITUCION]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[INST_COD_ORIGEN]"
+                      cachedDataType="i4"
+                      cachedName="INST_COD_ORIGEN"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[INST_COD_ORIGEN]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[INST_COD_ORIGEN]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_NUCLEO_PREGRADO]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_NUCLEO_PREGRADO"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_NUCLEO_PREGRADO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_NUCLEO_PREGRADO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_METODO_PRGM]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_METODO_PRGM"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_METODO_PRGM]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_METODO_PRGM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_VALORMATRICULAUNIVERSIDAD]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_VALORMATRICULAUNIVERSIDAD"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_VALORMATRICULAUNIVERSIDAD]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_VALORMATRICULAUNIVERSIDAD]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_PAGOMATRICULABECA]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_PAGOMATRICULABECA"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULABECA]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULABECA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_PAGOMATRICULACREDITO]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_PAGOMATRICULACREDITO"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULACREDITO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULACREDITO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPADRES]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_PAGOMATRICULAPADRES"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULAPADRES]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPADRES]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPROPIO]"
+                      cachedDataType="i4"
+                      cachedName="ESTU_COD_PAGOMATRICULAPROPIO"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULAPROPIO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[ESTU_COD_PAGOMATRICULAPROPIO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[MOD_RAZONA_CUANTITAT_PUNT]"
+                      cachedDataType="i4"
+                      cachedName="MOD_RAZONA_CUANTITAT_PUNT"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_RAZONA_CUANTITAT_PUNT]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_RAZONA_CUANTITAT_PUNT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[MOD_COMUNI_ESCRITA_PUNT]"
+                      cachedDataType="i4"
+                      cachedName="MOD_COMUNI_ESCRITA_PUNT"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_COMUNI_ESCRITA_PUNT]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COMUNI_ESCRITA_PUNT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[MOD_LECTURA_CRITICA_PUNT]"
+                      cachedDataType="i4"
+                      cachedName="MOD_LECTURA_CRITICA_PUNT"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_LECTURA_CRITICA_PUNT]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_LECTURA_CRITICA_PUNT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[MOD_INGLES_PUNT]"
+                      cachedDataType="i4"
+                      cachedName="MOD_INGLES_PUNT"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_INGLES_PUNT]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_INGLES_PUNT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[MOD_COMPETEN_CIUDADA_PUNT]"
+                      cachedDataType="i4"
+                      cachedName="MOD_COMPETEN_CIUDADA_PUNT"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_COMPETEN_CIUDADA_PUNT]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COMPETEN_CIUDADA_PUNT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[MOD_COD_INGLES_DESEM]"
+                      cachedDataType="i4"
+                      cachedName="MOD_COD_INGLES_DESEM"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_COD_INGLES_DESEM]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COD_INGLES_DESEM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[MOD_COD_COMUNI_ESCRITA_DESEM]"
+                      cachedDataType="i4"
+                      cachedName="MOD_COD_COMUNI_ESCRITA_DESEM"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_COD_COMUNI_ESCRITA_DESEM]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[MOD_COD_COMUNI_ESCRITA_DESEM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].Columns[PERIODO]"
+                      cachedDataType="i4"
+                      cachedName="PERIODO"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[COD_PERIODO]"
+                      lineageId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET].Columns[PERIODO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_CONSECUTIVO]"
+                      dataType="wstr"
+                      length="14"
+                      name="ESTU_CONSECUTIVO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[COD_PERIODO]"
+                      dataType="i4"
+                      name="COD_PERIODO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_RESIDE_MUN]"
+                      dataType="i4"
+                      name="ESTU_COD_RESIDE_MUN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_FECHANACIMIENTO]"
+                      dataType="wstr"
+                      length="10"
+                      name="ESTU_FECHANACIMIENTO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_GENERO]"
+                      dataType="i4"
+                      name="ESTU_COD_GENERO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_HORASSEMANATRABAJA]"
+                      dataType="i4"
+                      name="ESTU_COD_HORASSEMANATRABAJA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_PRIVADO_LIBERTAD]"
+                      dataType="i4"
+                      name="ESTU_COD_PRIVADO_LIBERTAD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_NACIONALIDAD]"
+                      dataType="i4"
+                      name="ESTU_COD_NACIONALIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_ESTRATOVIVIENDA]"
+                      dataType="i4"
+                      name="FAMI_COD_ESTRATOVIVIENDA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_TIENEAUTOMOVIL]"
+                      dataType="i4"
+                      name="FAMI_COD_TIENEAUTOMOVIL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_TIENELAVADORA]"
+                      dataType="i4"
+                      name="FAMI_COD_TIENELAVADORA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_TIENECOMPUTADOR]"
+                      dataType="i4"
+                      name="FAMI_COD_TIENECOMPUTADOR" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_TIENEINTERNET]"
+                      dataType="i4"
+                      name="FAMI_COD_TIENEINTERNET" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_EDUCACIONPADRE]"
+                      dataType="i4"
+                      name="FAMI_COD_EDUCACIONPADRE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[FAMI_COD_EDUCACIONMADRE]"
+                      dataType="i4"
+                      name="FAMI_COD_EDUCACIONMADRE" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[INST_COD_INSTITUCION]"
+                      dataType="i4"
+                      name="INST_COD_INSTITUCION" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[INST_COD_ORIGEN]"
+                      dataType="i4"
+                      name="INST_COD_ORIGEN" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_NUCLEO_PREGRADO]"
+                      dataType="i4"
+                      name="ESTU_COD_NUCLEO_PREGRADO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_METODO_PRGM]"
+                      dataType="i4"
+                      name="ESTU_COD_METODO_PRGM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_VALORMATRICULAUNIVERSIDAD]"
+                      dataType="i4"
+                      name="ESTU_COD_VALORMATRICULAUNIVERSIDAD" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULABECA]"
+                      dataType="i4"
+                      name="ESTU_COD_PAGOMATRICULABECA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULACREDITO]"
+                      dataType="i4"
+                      name="ESTU_COD_PAGOMATRICULACREDITO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULAPADRES]"
+                      dataType="i4"
+                      name="ESTU_COD_PAGOMATRICULAPADRES" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[ESTU_COD_PAGOMATRICULAPROPIO]"
+                      dataType="i4"
+                      name="ESTU_COD_PAGOMATRICULAPROPIO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_RAZONA_CUANTITAT_PUNT]"
+                      dataType="i4"
+                      name="MOD_RAZONA_CUANTITAT_PUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_COMUNI_ESCRITA_PUNT]"
+                      dataType="i4"
+                      name="MOD_COMUNI_ESCRITA_PUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_LECTURA_CRITICA_PUNT]"
+                      dataType="i4"
+                      name="MOD_LECTURA_CRITICA_PUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_INGLES_PUNT]"
+                      dataType="i4"
+                      name="MOD_INGLES_PUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_COMPETEN_CIUDADA_PUNT]"
+                      dataType="i4"
+                      name="MOD_COMPETEN_CIUDADA_PUNT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_COD_INGLES_DESEM]"
+                      dataType="i4"
+                      name="MOD_COD_INGLES_DESEM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET].ExternalColumns[MOD_COD_COMUNI_ESCRITA_DESEM]"
+                      dataType="i4"
+                      name="MOD_COD_COMUNI_ESCRITA_DESEM" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\FACT_ESTUDIANTE.Outputs[Salida de error de destino de ADO NET]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de ADO NET"
+                  synchronousInputId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\FACT_ESTUDIANTE.Outputs[Salida de error de destino de ADO NET].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\FACT_ESTUDIANTE.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\FACT_ESTUDIANTE.Outputs[Salida de error de destino de ADO NET].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Salida de origen de ADO NET]"
+              endId="Package\Data Flow Task\FACT_ESTUDIANTE.Inputs[Entrada de destino de ADO NET]"
+              name="Salida de origen de ADO NET"
+              startId="Package\Data Flow Task\DWH.Outputs[Salida de origen de ADO NET]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Esta sección CDATA contiene la información de diseño del paquete. Esta sección incluye información como, por ejemplo, las coordenadas (x,y), el ancho y el alto.-->
+<!--Si edita manualmente esta sección y comete un error, puede eliminarlo. -->
+<!--El paquete podrá cargarse normalmente, pero se perderá la información de diseño anterior y el diseñador reorganizará los elementos automáticamente en la superficie de diseño.-->
+<Objects
+  Version="8">
+  <!--Cada uno de los nodos siguientes contiene propiedades que no afectan al comportamiento en tiempo de ejecución.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Data Flow Task\FACT_ESTUDIANTE"
+          TopLeft="315,161" />
+        <NodeLayout
+          Size="105,43"
+          Id="Package\Data Flow Task\DWH"
+          TopLeft="339,78" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Salida de origen de ADO NET]"
+          TopLeft="391.5,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="15,40"
+              Start="0,0"
+              End="15,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="11,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11,20"
+                    Point2="15,20"
+                    Point3="15,24" />
+                  <mssgle:LineSegment
+                    End="15,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DWH">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\FACT_ESTUDIANTE">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
